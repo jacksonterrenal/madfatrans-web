@@ -16,7 +16,9 @@
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Camión de MADFATRANS cargado con tubería, con el logo y el WhatsApp 099 222 5585">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="theme-color" content="#6E0E12">
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#FFFFFF">
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#1E1819">
+<meta name="color-scheme" content="light dark">
 <link rel="icon" type="image/png" href="img/favicon.png">
 <link rel="apple-touch-icon" href="img/favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -62,6 +64,7 @@
   --f-dato: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
 
   --r: 6px;
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
   --ancho: 1120px;
 }
 @media (prefers-color-scheme: dark) {
@@ -96,8 +99,9 @@
 }
 
 * { box-sizing: border-box; }
-html { scroll-behavior: smooth; scroll-padding-top: 80px; }
-@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; } }
+html { scroll-behavior: smooth; scroll-padding-top: 80px; -webkit-tap-highlight-color: transparent; -webkit-text-size-adjust: 100%; }
+a, button, summary, label { touch-action: manipulation; }
+.boton, .copiar, .wa-flotante, .nav a { user-select: none; -webkit-user-select: none; -webkit-touch-callout: none; }
 body {
   margin: 0;
   background: var(--papel);
@@ -141,18 +145,23 @@ p { margin: 0; }
   min-height: 48px; padding: 0 22px; border-radius: var(--r);
   font: 700 1.125rem/1 var(--f-display); text-transform: uppercase; letter-spacing: 0.04em;
   text-decoration: none; border: 2px solid transparent; cursor: pointer;
-  transition: transform .15s ease, background-color .15s ease;
+  transition: transform 160ms var(--ease-out), background-color 160ms ease;
 }
 .boton:active { transform: scale(0.97); }
 .boton svg { width: 20px; height: 20px; flex: none; }
 .boton-wa { background: var(--wa); color: #fff; }
-.boton-wa:hover { background: #0E7A40; }
 .boton-claro { background: var(--sobre-granate); color: #4A090C; }
-.boton-claro:hover { background: #F3E6E6; }
 .boton-contorno { border-color: currentColor; color: var(--sobre-granate); background: transparent; }
-.boton-contorno:hover { background: rgba(255,255,255,0.08); }
 .boton-granate { background: var(--granate); color: var(--sobre-granate); }
-.boton-granate:hover { background: var(--granate-hondo); }
+@media (hover: hover) and (pointer: fine) {
+  .boton-wa:hover { background: #0E7A40; }
+  .boton-claro:hover { background: #F3E6E6; }
+  .boton-contorno:hover { background: rgba(255,255,255,0.08); }
+  .boton-granate:hover { background: var(--granate-hondo); }
+  .nav a:hover { color: var(--tinta); }
+  .copiar:hover { background: rgba(255,255,255,0.18); }
+  .wa-flotante:hover { transform: scale(1.06); }
+}
 
 /* Encabezado */
 .encabezado {
@@ -170,7 +179,6 @@ p { margin: 0; }
 .marca-texto small { font: 600 0.6rem/1.2 var(--f-display); letter-spacing: 0.08em; text-transform: uppercase; color: var(--tinta-suave); margin-top: 3px; }
 .nav { display: none; gap: 28px; margin-left: auto; }
 .nav a { text-decoration: none; font: 600 1rem/1 var(--f-display); text-transform: uppercase; letter-spacing: 0.06em; color: var(--tinta-suave); }
-.nav a:hover { color: var(--tinta); }
 .encabezado .boton { margin-left: auto; min-height: 42px; padding: 0 16px; font-size: 1rem; }
 @media (min-width: 860px) {
   .nav { display: flex; }
@@ -299,6 +307,8 @@ input:focus, select:focus, textarea:focus { outline: 2px solid var(--acento); ou
 .check { display: flex; gap: 10px; align-items: flex-start; font-weight: 400; font-size: 0.875rem; color: var(--tinta-suave); }
 .check input { width: 20px; height: 20px; min-height: 0; flex: none; margin-top: 2px; accent-color: var(--granate); }
 .error { color: var(--acento); font-size: 0.875rem; font-weight: 600; }
+.resultado { transition: opacity 200ms var(--ease-out), transform 200ms var(--ease-out); }
+@starting-style { .resultado { opacity: 0; transform: translateY(6px); } }
 .resultado { grid-column: 1 / -1; border: 2px solid var(--wa); border-radius: var(--r); padding: 18px; display: grid; gap: 12px; background: var(--superficie); }
 .resultado pre { margin: 0; white-space: pre-wrap; font: 500 0.8125rem/1.5 var(--f-dato); color: var(--tinta-suave); }
 .enviar { grid-column: 1 / -1; display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
@@ -315,10 +325,11 @@ input:focus, select:focus, textarea:focus { outline: 2px solid var(--acento); ou
 .datos dd { margin: 0; font-size: 1.25rem; font-weight: 600; display: flex; flex-wrap: wrap; gap: 8px 14px; align-items: center; overflow-wrap: anywhere; }
 .datos dd a { text-decoration-color: rgba(255,255,255,0.4); text-underline-offset: 4px; }
 .copiar { font: 600 0.8125rem/1 var(--f-texto); color: var(--sobre-granate); background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.25); border-radius: 4px; padding: 7px 10px; cursor: pointer; }
-.copiar:hover { background: rgba(255,255,255,0.18); }
+.copiar { transition: transform 160ms var(--ease-out); }
+.copiar:active { transform: scale(0.95); }
 
 .pie { background: var(--granate-hondo); color: var(--sobre-granate-suave); border-top: 1px solid rgba(255,255,255,0.12); font-size: 0.875rem; }
-.pie .envoltura { padding-block: 24px calc(24px + env(safe-area-inset-bottom, 0px)); display: grid; gap: 14px; }
+.pie .envoltura { padding-block: 24px calc(96px + env(safe-area-inset-bottom, 0px)); display: grid; gap: 14px; }
 .pie details summary { cursor: pointer; color: var(--sobre-granate); font-weight: 600; }
 .pie details p { margin-top: 10px; max-width: 75ch; }
 
@@ -329,10 +340,17 @@ input:focus, select:focus, textarea:focus { outline: 2px solid var(--acento); ou
   bottom: calc(18px + env(safe-area-inset-bottom, 0px));
   width: 58px; height: 58px; border-radius: 50%; display: grid; place-items: center;
   background: var(--wa); color: #fff; box-shadow: 0 10px 24px -6px rgba(0,0,0,0.45);
-  transition: transform .15s ease;
+  transition: transform 160ms var(--ease-out);
 }
-.wa-flotante:hover { transform: scale(1.06); }
+.wa-flotante:active { transform: scale(0.94); }
 .wa-flotante svg { width: 30px; height: 30px; }
+
+/* Al final para que gane sobre las reglas de arriba */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .boton:active, .copiar:active, .wa-flotante:active { transform: none; }
+  .resultado { transition: none; }
+}
 </style>
 </head>
 <body>
@@ -571,7 +589,7 @@ input:focus, select:focus, textarea:focus { outline: 2px solid var(--acento); ou
             <option>Furgón</option>
           </select>
         </div>
-        <div class="campo"><label for="c-peso">Peso aproximado <small>(toneladas)</small></label><input id="c-peso" name="peso" inputmode="decimal" placeholder="Ej.: 8"></div>
+        <div class="campo"><label for="c-peso">Peso aproximado <small>(toneladas)</small></label><input id="c-peso" name="peso" inputmode="decimal" enterkeyhint="next" placeholder="Ej.: 8"></div>
         <div class="campo"><label for="c-fecha">Fecha de carga</label><input id="c-fecha" name="fecha" type="date"></div>
         <div class="campo ancho"><label for="c-detalle">Detalles <small>(opcional)</small></label><textarea id="c-detalle" name="detalle" placeholder="Medidas, cantidad, si necesita montacargas, etc."></textarea></div>
         <label class="check campo ancho" for="c-privacidad">
