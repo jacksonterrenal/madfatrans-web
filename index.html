@@ -234,11 +234,12 @@ p { margin: 0; }
 
 /* Flota */
 .flota { display: grid; gap: 24px; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
-.unidad { border: 1px solid var(--linea); border-radius: var(--r); background: var(--papel); overflow: hidden; display: grid; }
+.unidad { border: 1px solid var(--linea); border-radius: var(--r); background: var(--papel); overflow: hidden; display: flex; flex-direction: column; min-width: 0; }
 .unidad-dibujo { background: var(--granate); color: var(--sobre-granate); padding: 28px 24px 0; }
 .unidad-dibujo svg { width: 100%; height: auto; display: block; }
-.unidad-foto { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; }
-.unidad-dibujo.con-alto { aspect-ratio: 16 / 9; display: grid; align-content: end; }
+.unidad-foto { width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: contain; background: var(--granate); }
+.unidad-dibujo.con-alto { aspect-ratio: 16 / 9; display: flex; align-items: flex-end; overflow: hidden; }
+.unidad-dibujo.con-alto svg { flex: 1 1 auto; min-width: 0; }
 .unidad-cuerpo { padding: 24px; display: grid; gap: 12px; align-content: start; }
 .unidad-cuerpo p { color: var(--tinta-suave); }
 .capacidades { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 4px; }
@@ -249,7 +250,7 @@ p { margin: 0; }
 .galeria { display: grid; gap: 16px; grid-template-columns: 1fr; }
 @media (min-width: 760px) { .galeria { grid-template-columns: 1fr 1fr; } }
 .galeria figure { margin: 0; display: grid; gap: 8px; min-width: 0; }
-.galeria img { width: 100%; height: 100%; object-fit: cover; border-radius: var(--r); aspect-ratio: 4 / 3; }
+.galeria img { width: 100%; height: auto; border-radius: var(--r); }
 .galeria figcaption { font-size: 0.875rem; color: var(--tinta-suave); }
 
 /* Cobertura */
