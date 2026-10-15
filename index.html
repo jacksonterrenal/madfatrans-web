@@ -1,0 +1,681 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>MADFATRANS S.A.</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="MADFATRANS S.A., empresa de transporte terrestre pesado en Guayaquil. Plataformas y furgones de 5, 8 y 10 toneladas, con GPS y seguro de carga, a todo el Ecuador.">
+<meta property="og:title" content="MADFATRANS S.A. · Transporte de carga pesada en Guayaquil">
+<meta property="og:description" content="Plataformas y furgones de 5 a 10 toneladas con GPS y seguro de carga. Cobertura en todo el Ecuador.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="es_EC">
+<meta name="theme-color" content="#6E0E12">
+<link rel="icon" type="image/png" href="img/favicon.png">
+<link rel="apple-touch-icon" href="img/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,600;0,700;1,700;1,800&family=Barlow:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "MADFATRANS S.A.",
+  "description": "Empresa de transporte terrestre pesado. Plataformas y furgones de 5, 8 y 10 toneladas con GPS y seguro de carga.",
+  "telephone": "+593992225585",
+  "email": "madfatrans@outlook.com",
+  "areaServed": "Ecuador",
+  "foundingDate": "2019",
+  "image": "img/carga-tuberia.jpg",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Km 13½ vía a la Costa, Mz. F, Solar 9",
+    "addressLocality": "Guayaquil",
+    "addressRegion": "Guayas",
+    "addressCountry": "EC"
+  }
+}
+</script>
+<style>
+/* Layout: una sola página larga; banda granate de portada con una "guía de remisión" como pieza visual, luego bandas alternas papel / superficie. */
+:root {
+  --granate: #6E0E12;
+  --granate-hondo: #4A090C;
+  --acento: #8E1A1F;
+  --tinta: #1D1617;
+  --tinta-suave: #5E5354;
+  --papel: #F7F4F3;
+  --superficie: #FFFFFF;
+  --linea: #E3DBDA;
+  --sobre-granate: #FFFFFF;
+  --sobre-granate-suave: #E7C9CA;
+  --wa: #128C4A;
+
+  --f-display: "Barlow Condensed", "Arial Narrow", "Roboto Condensed", sans-serif;
+  --f-texto: "Barlow", "Segoe UI", system-ui, sans-serif;
+  --f-dato: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+
+  --r: 6px;
+  --ancho: 1120px;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --granate: #5A0B0F;
+    --granate-hondo: #3A0709;
+    --acento: #E06A6E;
+    --tinta: #F2ECEB;
+    --tinta-suave: #B6A9AA;
+    --papel: #141011;
+    --superficie: #1E1819;
+    --linea: #352B2C;
+    --sobre-granate: #FFFFFF;
+    --sobre-granate-suave: #E7C9CA;
+    --wa: #1FA85C;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --granate: #5A0B0F;
+  --granate-hondo: #3A0709;
+  --acento: #E06A6E;
+  --tinta: #F2ECEB;
+  --tinta-suave: #B6A9AA;
+  --papel: #141011;
+  --superficie: #1E1819;
+  --linea: #352B2C;
+  --sobre-granate: #FFFFFF;
+  --sobre-granate-suave: #E7C9CA;
+  --wa: #1FA85C;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; } }
+body {
+  margin: 0;
+  background: var(--papel);
+  color: var(--tinta);
+  font: 400 1.0625rem/1.6 var(--f-texto);
+  -webkit-font-smoothing: antialiased;
+}
+body::before {
+  content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px);
+  z-index: 10; background: var(--granate-hondo);
+}
+img { max-width: 100%; display: block; }
+a { color: inherit; }
+:focus-visible { outline: 3px solid var(--acento); outline-offset: 2px; }
+
+.envoltura {
+  max-width: var(--ancho);
+  margin: 0 auto;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+@media (min-width: 720px) {
+  .envoltura { padding-left: max(32px, env(safe-area-inset-left, 0px)); padding-right: max(32px, env(safe-area-inset-right, 0px)); }
+}
+
+h1, h2, h3 { font-family: var(--f-display); line-height: 1.02; margin: 0; text-wrap: balance; }
+h2 { font-size: clamp(2rem, 5vw, 3rem); font-weight: 700; text-transform: uppercase; letter-spacing: 0.01em; }
+h3 { font-size: 1.5rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.02em; }
+p { margin: 0; }
+.ceja {
+  font: 600 0.8125rem/1.2 var(--f-texto);
+  text-transform: uppercase; letter-spacing: 0.12em;
+  color: var(--acento);
+}
+.intro { color: var(--tinta-suave); max-width: 60ch; }
+.cabeza-seccion { display: grid; gap: 12px; margin-bottom: 40px; }
+
+/* Botones */
+.boton {
+  display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+  min-height: 48px; padding: 0 22px; border-radius: var(--r);
+  font: 700 1.125rem/1 var(--f-display); text-transform: uppercase; letter-spacing: 0.04em;
+  text-decoration: none; border: 2px solid transparent; cursor: pointer;
+  transition: transform .15s ease, background-color .15s ease;
+}
+.boton:active { transform: scale(0.97); }
+.boton svg { width: 20px; height: 20px; flex: none; }
+.boton-wa { background: var(--wa); color: #fff; }
+.boton-wa:hover { background: #0E7A40; }
+.boton-claro { background: var(--sobre-granate); color: #4A090C; }
+.boton-claro:hover { background: #F3E6E6; }
+.boton-contorno { border-color: currentColor; color: var(--sobre-granate); background: transparent; }
+.boton-contorno:hover { background: rgba(255,255,255,0.08); }
+.boton-granate { background: var(--granate); color: var(--sobre-granate); }
+.boton-granate:hover { background: var(--granate-hondo); }
+
+/* Encabezado */
+.encabezado {
+  position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20;
+  background: var(--superficie); border-bottom: 1px solid var(--linea);
+}
+.encabezado .envoltura { display: flex; align-items: center; gap: 24px; min-height: 68px; }
+.marca { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--granate); }
+:root .marca { color: var(--acento); }
+.camion {
+  width: 46px; aspect-ratio: 378 / 322; background: currentColor;
+  -webkit-mask: url(img/camion.png) center / contain no-repeat;
+          mask: url(img/camion.png) center / contain no-repeat;
+}
+.marca-texto { display: grid; line-height: 1; }
+.marca-texto b { font: italic 800 1.6rem/0.9 var(--f-display); letter-spacing: 0.01em; }
+.marca-texto small { font: 600 0.6rem/1.2 var(--f-display); letter-spacing: 0.08em; text-transform: uppercase; color: var(--tinta-suave); margin-top: 3px; }
+.nav { display: none; gap: 28px; margin-left: auto; }
+.nav a { text-decoration: none; font: 600 1rem/1 var(--f-display); text-transform: uppercase; letter-spacing: 0.06em; color: var(--tinta-suave); }
+.nav a:hover { color: var(--tinta); }
+.encabezado .boton { margin-left: auto; min-height: 42px; padding: 0 16px; font-size: 1rem; }
+@media (min-width: 860px) {
+  .nav { display: flex; }
+  .encabezado .boton { margin-left: 0; }
+}
+
+/* Portada */
+.portada { background: var(--granate); color: var(--sobre-granate); overflow: hidden; }
+.portada .envoltura {
+  display: grid; gap: 48px; align-items: center;
+  padding-block: 64px 72px;
+}
+@media (min-width: 960px) { .portada .envoltura { grid-template-columns: 1.15fr 0.85fr; padding-block: 88px 96px; } }
+.portada .ceja { color: var(--sobre-granate-suave); }
+.portada h1 {
+  font-size: clamp(2.75rem, 8vw, 5rem); font-weight: 800; font-style: italic;
+  text-transform: uppercase; letter-spacing: -0.005em; margin-top: 16px;
+}
+.portada .bajada { color: var(--sobre-granate-suave); font-size: 1.1875rem; max-width: 46ch; margin-top: 20px; }
+.acciones { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 32px; }
+
+/* Foto de portada con la guía de remisión superpuesta */
+.portada-visual { position: relative; display: grid; gap: 20px; min-width: 0; }
+.portada-visual img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: var(--r); box-shadow: 0 24px 60px -24px rgba(0,0,0,0.6); }
+@media (min-width: 960px) {
+  .portada-visual { padding-bottom: 150px; }
+  .portada-visual .guia { position: absolute; left: -56px; bottom: 0; width: 340px; }
+}
+/* Guía de remisión (pieza visual de portada) */
+.guia {
+  background: #FBF8F7; color: #1D1617; border-radius: var(--r);
+  box-shadow: 0 24px 60px -20px rgba(0,0,0,0.55);
+  transform: rotate(1.5deg);
+  font-size: 0.9375rem; min-width: 0;
+}
+.guia-cabeza { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; padding: 18px 22px; border-bottom: 2px dashed #D9CFCE; }
+.guia-cabeza b { font: 700 1.25rem/1 var(--f-display); text-transform: uppercase; letter-spacing: 0.04em; }
+.guia-cabeza span { font: 500 0.8125rem/1 var(--f-dato); color: #6E0E12; }
+.guia dl { margin: 0; padding: 8px 22px 20px; display: grid; grid-template-columns: auto 1fr; }
+.guia dt, .guia dd { padding: 9px 0; border-bottom: 1px solid #EAE2E1; margin: 0; }
+.guia dt { font: 600 0.75rem/1.4 var(--f-texto); text-transform: uppercase; letter-spacing: 0.1em; color: #7A6C6D; padding-right: 20px; }
+.guia dd { font-weight: 600; text-align: right; }
+.guia dd.dato { font-family: var(--f-dato); font-weight: 500; }
+.guia dl > :nth-last-child(-n+2) { border-bottom: 0; }
+.sello {
+  margin: 0 22px 20px; padding: 8px 12px; border: 2px solid #6E0E12; color: #6E0E12; border-radius: 4px;
+  font: 700 0.9375rem/1 var(--f-display); text-transform: uppercase; letter-spacing: 0.1em;
+  display: inline-block; transform: rotate(-3deg);
+}
+
+/* Franja de garantías */
+.garantias { background: var(--superficie); border-bottom: 1px solid var(--linea); }
+.garantias ul { list-style: none; margin: 0; padding-block: 28px; display: grid; gap: 20px 32px; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); }
+.garantias li { display: flex; gap: 14px; align-items: flex-start; }
+.garantias svg { width: 28px; height: 28px; flex: none; color: var(--acento); margin-top: 2px; }
+.garantias b { display: block; font: 700 1.1875rem/1.1 var(--f-display); text-transform: uppercase; letter-spacing: 0.03em; }
+.garantias span { color: var(--tinta-suave); font-size: 0.9375rem; }
+
+.seccion { padding-block: 88px; }
+.seccion-alterna { background: var(--superficie); border-block: 1px solid var(--linea); }
+
+/* Servicios */
+.cargas { display: grid; gap: 1px; background: var(--linea); border: 1px solid var(--linea); border-radius: var(--r); overflow: hidden; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); }
+.carga { background: var(--superficie); padding: 28px 24px 30px; display: grid; gap: 10px; align-content: start; }
+.carga svg { width: 40px; height: 40px; color: var(--acento); }
+.carga p { color: var(--tinta-suave); font-size: 0.9875rem; }
+.carga .ejemplos { font: 500 0.8125rem/1.5 var(--f-dato); color: var(--tinta); margin-top: 4px; }
+
+/* Flota */
+.flota { display: grid; gap: 24px; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
+.unidad { border: 1px solid var(--linea); border-radius: var(--r); background: var(--papel); overflow: hidden; display: grid; }
+.unidad-dibujo { background: var(--granate); color: var(--sobre-granate); padding: 28px 24px 0; }
+.unidad-dibujo svg { width: 100%; height: auto; display: block; }
+.unidad-foto { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; }
+.unidad-dibujo.con-alto { aspect-ratio: 16 / 9; display: grid; align-content: end; }
+.unidad-cuerpo { padding: 24px; display: grid; gap: 12px; align-content: start; }
+.unidad-cuerpo p { color: var(--tinta-suave); }
+.capacidades { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 4px; }
+.capacidades span { font: 500 0.9375rem/1 var(--f-dato); padding: 8px 12px; border: 1px solid var(--linea); border-radius: 4px; background: var(--superficie); }
+.nota { font-size: 0.875rem; color: var(--tinta-suave); margin-top: 20px; }
+
+/* Galería */
+.galeria { display: grid; gap: 16px; grid-template-columns: 1fr; }
+@media (min-width: 760px) { .galeria { grid-template-columns: 1fr 1fr; } }
+.galeria figure { margin: 0; display: grid; gap: 8px; min-width: 0; }
+.galeria img { width: 100%; height: 100%; object-fit: cover; border-radius: var(--r); aspect-ratio: 4 / 3; }
+.galeria figcaption { font-size: 0.875rem; color: var(--tinta-suave); }
+
+/* Cobertura */
+.cobertura { display: grid; gap: 40px; }
+@media (min-width: 900px) { .cobertura { grid-template-columns: 0.8fr 1.2fr; align-items: start; } }
+.tabla-caja { overflow-x: auto; border: 1px solid var(--linea); border-radius: var(--r); background: var(--superficie); }
+table { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; }
+th, td { text-align: left; padding: 13px 18px; border-bottom: 1px solid var(--linea); white-space: nowrap; }
+th { font: 600 0.75rem/1.2 var(--f-texto); text-transform: uppercase; letter-spacing: 0.1em; color: var(--tinta-suave); background: var(--papel); }
+tr:last-child td { border-bottom: 0; }
+td.km { font-family: var(--f-dato); text-align: right; }
+th.km { text-align: right; }
+td .ruta { color: var(--tinta-suave); }
+.clientes { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 24px; }
+.clientes span { padding: 8px 14px; border-radius: 999px; background: var(--papel); border: 1px solid var(--linea); font-weight: 600; font-size: 0.9375rem; }
+
+/* Cotizar */
+.cotizar { display: grid; gap: 40px; }
+@media (min-width: 900px) { .cotizar { grid-template-columns: 0.75fr 1.25fr; } }
+.pasos { list-style: none; padding: 0; margin: 24px 0 0; display: grid; gap: 18px; counter-reset: paso; }
+.pasos li { display: grid; grid-template-columns: 36px 1fr; gap: 14px; align-items: start; counter-increment: paso; }
+.pasos li::before {
+  content: counter(paso); width: 36px; height: 36px; border-radius: 50%; display: grid; place-items: center;
+  background: var(--granate); color: var(--sobre-granate); font: 700 1.125rem/1 var(--f-display);
+}
+.pasos b { display: block; }
+.pasos span { color: var(--tinta-suave); font-size: 0.9375rem; }
+form { background: var(--superficie); border: 1px solid var(--linea); border-radius: var(--r); padding: 28px; display: grid; gap: 18px; grid-template-columns: 1fr 1fr; min-width: 0; }
+@media (max-width: 600px) { form { grid-template-columns: 1fr; padding: 20px; } }
+.campo { display: grid; gap: 6px; min-width: 0; }
+.campo.ancho { grid-column: 1 / -1; }
+label { font-weight: 600; font-size: 0.9375rem; }
+label small { font-weight: 400; color: var(--tinta-suave); }
+input, select, textarea {
+  font: inherit; font-size: 1rem; color: var(--tinta); background: var(--superficie);
+  border: 1px solid var(--linea); border-radius: 4px; padding: 11px 12px; width: 100%; min-height: 46px;
+}
+textarea { min-height: 96px; resize: vertical; }
+input:focus, select:focus, textarea:focus { outline: 2px solid var(--acento); outline-offset: 0; border-color: transparent; }
+.check { display: flex; gap: 10px; align-items: flex-start; font-weight: 400; font-size: 0.875rem; color: var(--tinta-suave); }
+.check input { width: 20px; height: 20px; min-height: 0; flex: none; margin-top: 2px; accent-color: var(--granate); }
+.error { color: var(--acento); font-size: 0.875rem; font-weight: 600; }
+.resultado { grid-column: 1 / -1; border: 2px solid var(--wa); border-radius: var(--r); padding: 18px; display: grid; gap: 12px; background: var(--superficie); }
+.resultado pre { margin: 0; white-space: pre-wrap; font: 500 0.8125rem/1.5 var(--f-dato); color: var(--tinta-suave); }
+.enviar { grid-column: 1 / -1; display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+
+/* Contacto */
+.contacto { background: var(--granate-hondo); color: var(--sobre-granate); }
+.contacto .envoltura { padding-block: 72px; display: grid; gap: 40px; }
+@media (min-width: 900px) { .contacto .envoltura { grid-template-columns: 1fr 1fr; } }
+.contacto .ceja { color: var(--sobre-granate-suave); }
+.contacto h2 { margin-top: 12px; }
+.datos { display: grid; gap: 22px; margin: 0; }
+.datos div { display: grid; gap: 4px; border-bottom: 1px solid rgba(255,255,255,0.15); padding-bottom: 18px; }
+.datos dt { font: 600 0.75rem/1.2 var(--f-texto); text-transform: uppercase; letter-spacing: 0.12em; color: var(--sobre-granate-suave); }
+.datos dd { margin: 0; font-size: 1.25rem; font-weight: 600; display: flex; flex-wrap: wrap; gap: 8px 14px; align-items: center; overflow-wrap: anywhere; }
+.datos dd a { text-decoration-color: rgba(255,255,255,0.4); text-underline-offset: 4px; }
+.copiar { font: 600 0.8125rem/1 var(--f-texto); color: var(--sobre-granate); background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.25); border-radius: 4px; padding: 7px 10px; cursor: pointer; }
+.copiar:hover { background: rgba(255,255,255,0.18); }
+
+.pie { background: var(--granate-hondo); color: var(--sobre-granate-suave); border-top: 1px solid rgba(255,255,255,0.12); font-size: 0.875rem; }
+.pie .envoltura { padding-block: 24px calc(24px + env(safe-area-inset-bottom, 0px)); display: grid; gap: 14px; }
+.pie details summary { cursor: pointer; color: var(--sobre-granate); font-weight: 600; }
+.pie details p { margin-top: 10px; max-width: 75ch; }
+
+/* WhatsApp flotante */
+.wa-flotante {
+  position: fixed; z-index: 30;
+  right: calc(18px + env(safe-area-inset-right, 0px));
+  bottom: calc(18px + env(safe-area-inset-bottom, 0px));
+  width: 58px; height: 58px; border-radius: 50%; display: grid; place-items: center;
+  background: var(--wa); color: #fff; box-shadow: 0 10px 24px -6px rgba(0,0,0,0.45);
+  transition: transform .15s ease;
+}
+.wa-flotante:hover { transform: scale(1.06); }
+.wa-flotante svg { width: 30px; height: 30px; }
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-wa" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.7.3-.2.3-.9.9-.9 2.2s.9 2.5 1 2.7c.1.2 1.8 2.8 4.4 3.9 1.6.7 2.3.8 3.1.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3Z"/></symbol>
+</svg>
+
+<header class="encabezado">
+  <div class="envoltura">
+    <a class="marca" href="#inicio" aria-label="MADFATRANS S.A., inicio">
+      <span class="camion" aria-hidden="true"></span>
+      <span class="marca-texto"><b>MADFATRANS</b><small>Transporte terrestre pesado</small></span>
+    </a>
+    <nav class="nav" aria-label="Secciones">
+      <a href="#servicios">Servicios</a>
+      <a href="#flota">Flota</a>
+      <a href="#trabajos">Trabajos</a>
+      <a href="#cobertura">Cobertura</a>
+      <a href="#cotizar">Cotizar</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+    <a class="boton boton-wa" href="https://wa.me/593992225585?text=Hola%20MADFATRANS%2C%20quisiera%20cotizar%20un%20transporte." target="_blank" rel="noopener">
+      <svg aria-hidden="true"><use href="#i-wa"/></svg>WhatsApp
+    </a>
+  </div>
+</header>
+
+<main id="inicio">
+  <section class="portada">
+    <div class="envoltura">
+      <div>
+        <p class="ceja">Guayaquil · Ecuador · Desde 2019</p>
+        <h1>Su carga pesada, a cualquier punto del Ecuador</h1>
+        <p class="bajada">Transportamos maquinaria, tubería, materiales de construcción y productos agrícolas en plataformas y furgones de 5 a 10 toneladas. Cada unidad viaja con GPS y la carga va asegurada.</p>
+        <div class="acciones">
+          <a class="boton boton-claro" href="#cotizar">Pedir cotización</a>
+          <a class="boton boton-contorno" href="https://wa.me/593992225585?text=Hola%20MADFATRANS%2C%20quisiera%20cotizar%20un%20transporte." target="_blank" rel="noopener">
+            <svg aria-hidden="true"><use href="#i-wa"/></svg>099 222 5585
+          </a>
+        </div>
+      </div>
+
+      <div class="portada-visual">
+      <img src="img/carga-tuberia.jpg" alt="Camión de MADFATRANS cargado con tubería de PVC amarrada con correas" width="1280" height="720">
+      <aside class="guia" aria-label="Resumen del servicio">
+        <div class="guia-cabeza"><b>Guía de remisión</b><span>Nº 001-001</span></div>
+        <dl>
+          <dt>Transportista</dt><dd>MADFATRANS S.A.</dd>
+          <dt>En servicio</dt><dd class="dato">Desde 2019</dd>
+          <dt>Punto de partida</dt><dd>Guayaquil, Guayas</dd>
+          <dt>Destino</dt><dd>Todo el Ecuador</dd>
+          <dt>Capacidad</dt><dd class="dato">5 t · 8 t · 10 t</dd>
+          <dt>Monitoreo</dt><dd>GPS en cada unidad</dd>
+        </dl>
+        <span class="sello">Carga asegurada</span>
+      </aside>
+      </div>
+    </div>
+  </section>
+
+  <section class="garantias" aria-label="Garantías">
+    <div class="envoltura">
+      <ul>
+        <li>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21Z"/><circle cx="12" cy="9.5" r="2.5"/></svg>
+          <div><b>GPS en ruta</b><span>Sabemos dónde está su carga en cada momento del viaje.</span></div>
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 4 6v6c0 4.5 3.4 8.3 8 9 4.6-.7 8-4.5 8-9V6l-8-3Z"/><path d="m9 12 2 2 4-4"/></svg>
+          <div><b>Seguro de carga</b><span>Su mercadería viaja protegida desde que se carga hasta que se entrega.</span></div>
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12h18M12 3c2.5 2.7 3.8 5.7 3.8 9s-1.3 6.3-3.8 9c-2.5-2.7-3.8-5.7-3.8-9S9.5 5.7 12 3Z"/><circle cx="12" cy="12" r="9"/></svg>
+          <div><b>Cobertura nacional</b><span>Costa, Sierra y Oriente, saliendo desde Guayaquil.</span></div>
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>
+          <div><b>Desde 2019</b><span>Más de seis años moviendo carga por las carreteras del país.</span></div>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="seccion" id="servicios">
+    <div class="envoltura">
+      <div class="cabeza-seccion">
+        <p class="ceja">Servicios</p>
+        <h2>Qué transportamos</h2>
+        <p class="intro">Carga pesada y voluminosa para empresas y personas. Si su carga no aparece aquí, escríbanos y le decimos si podemos llevarla.</p>
+      </div>
+      <div class="cargas">
+        <article class="carga">
+          <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round" aria-hidden="true"><path d="M4 30h22v-8H4zM8 22v-6h8l4 6"/><circle cx="9" cy="33" r="3"/><circle cx="21" cy="33" r="3"/><path d="M26 26l8-14 3 2-6 12"/></svg>
+          <h3>Maquinaria</h3>
+          <p>Equipos industriales, agrícolas y de construcción, asegurados sobre plataforma.</p>
+          <p class="ejemplos">Generadores · motores · equipos de obra</p>
+        </article>
+        <article class="carga">
+          <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 35V17"/><path d="M20 17c-6 0-11-4-12-10 6 0 11 4 12 10ZM20 17c6 0 11-4 12-10-6 0-11 4-12 10Z"/><path d="M20 26c-4 0-8-2-9-6 4 0 8 2 9 6ZM20 26c4 0 8-2 9-6-4 0-8 2-9 6Z"/></svg>
+          <h3>Productos agrícolas</h3>
+          <p>Producción de la Costa hacia empacadoras, bodegas, puertos y mercados.</p>
+          <p class="ejemplos">Banano · cacao · camarón</p>
+        </article>
+        <article class="carga">
+          <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round" aria-hidden="true"><path d="M4 34h32M7 34V22h10v12M17 34V12h12v22M29 34V18h5v16"/><path d="M10 26h4M20 16h6M20 21h6M20 26h6"/></svg>
+          <h3>Materiales de construcción</h3>
+          <p>Para obras, ferreterías y distribuidoras, en la ciudad o fuera de ella.</p>
+          <p class="ejemplos">Hierro · cemento · bloques · perfiles</p>
+        </article>
+        <article class="carga">
+          <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><ellipse cx="9" cy="14" rx="4" ry="5"/><ellipse cx="9" cy="27" rx="4" ry="5"/><path d="M9 9h26M9 19h26M9 22h26M9 32h26"/><ellipse cx="35" cy="14" rx="1.5" ry="5"/><ellipse cx="35" cy="27" rx="1.5" ry="5"/></svg>
+          <h3>Tubería</h3>
+          <p>Tubería de acero y PVC de gran longitud, bien amarrada para viajes largos.</p>
+          <p class="ejemplos">Acero · PVC · hierro dúctil</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="seccion seccion-alterna" id="flota">
+    <div class="envoltura">
+      <div class="cabeza-seccion">
+        <p class="ceja">Flota</p>
+        <h2>El camión adecuado para su carga</h2>
+        <p class="intro">Dos tipos de unidad en tres capacidades. Díganos qué lleva y le recomendamos la que conviene.</p>
+      </div>
+      <div class="flota">
+        <article class="unidad">
+          <img class="unidad-foto" src="img/carga-cemento.jpg" alt="Montacargas subiendo pallets de cemento a una plataforma de MADFATRANS" width="1280" height="720" loading="lazy">
+          <div class="unidad-cuerpo">
+            <h3>Plataforma</h3>
+            <p>Abierta, para carga larga o pesada que se sube con grúa o montacargas: maquinaria, tubería, hierro y estructuras.</p>
+            <div class="capacidades"><span>5 t</span><span>8 t</span><span>10 t</span></div>
+          </div>
+        </article>
+        <article class="unidad">
+          <div class="unidad-dibujo con-alto" aria-hidden="true">
+            <svg viewBox="0 0 320 110" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round">
+              <path d="M20 78V22h188v56z"/>
+              <path d="M40 34h148M40 46h148M40 58h148" stroke-width="1.5" opacity=".5"/>
+              <path d="M210 78V40h40l22 22v16h-62"/>
+              <path d="M218 46h28l14 14h-42z"/>
+              <circle cx="58" cy="88" r="11" fill="currentColor"/><circle cx="84" cy="88" r="11" fill="currentColor"/><circle cx="246" cy="88" r="11" fill="currentColor"/>
+              <path d="M0 102h320" stroke-width="2" opacity=".4"/>
+            </svg>
+          </div>
+          <div class="unidad-cuerpo">
+            <h3>Furgón</h3>
+            <p>Cerrado, protege la carga del sol y la lluvia: productos agrícolas, cajas, sacos y mercadería empacada.</p>
+            <div class="capacidades"><span>5 t</span><span>8 t</span><span>10 t</span></div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="seccion" id="trabajos">
+    <div class="envoltura">
+      <div class="cabeza-seccion">
+        <p class="ceja">Trabajos</p>
+        <h2>Así cuidamos su carga</h2>
+        <p class="intro">Carga bien amarrada, cubierta con lona cuando hace falta y entregada donde la necesita.</p>
+      </div>
+      <div class="galeria">
+        <figure><img src="img/descarga-tuberia.jpg" alt="Personal de MADFATRANS descargando tubería de PVC en la calle" width="1225" height="900" loading="lazy"><figcaption>Descarga de tubería en el punto de entrega.</figcaption></figure>
+        <figure><img src="img/camion-baranda.jpg" alt="Camión de MADFATRANS con la carga cubierta por una lona roja" width="1262" height="939" loading="lazy"><figcaption>Carga cubierta con lona para el viaje.</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="seccion seccion-alterna" id="cobertura">
+    <div class="envoltura cobertura">
+      <div class="cabeza-seccion" style="margin-bottom:0">
+        <p class="ceja">Cobertura</p>
+        <h2>Salimos de Guayaquil hacia todo el país</h2>
+        <p class="intro">Llegamos a las 24 provincias del Ecuador continental. Estas son algunas de las rutas que más hacemos.</p>
+        <div class="clientes" aria-label="A quién atendemos">
+          <span>Exportadoras</span><span>Importadoras</span><span>Industrias</span><span>Personas</span>
+        </div>
+      </div>
+      <div class="tabla-caja">
+        <table>
+          <thead><tr><th>Destino</th><th>Provincia</th><th class="km">Km aprox.</th></tr></thead>
+          <tbody>
+            <tr><td>Machala</td><td class="ruta">El Oro</td><td class="km">185</td></tr>
+            <tr><td>Manta</td><td class="ruta">Manabí</td><td class="km">195</td></tr>
+            <tr><td>Cuenca</td><td class="ruta">Azuay</td><td class="km">195</td></tr>
+            <tr><td>Santo Domingo</td><td class="ruta">Santo Domingo de los Tsáchilas</td><td class="km">270</td></tr>
+            <tr><td>Ambato</td><td class="ruta">Tungurahua</td><td class="km">290</td></tr>
+            <tr><td>Loja</td><td class="ruta">Loja</td><td class="km">410</td></tr>
+            <tr><td>Quito</td><td class="ruta">Pichincha</td><td class="km">420</td></tr>
+            <tr><td>Esmeraldas</td><td class="ruta">Esmeraldas</td><td class="km">440</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="seccion" id="cotizar">
+    <div class="envoltura cotizar">
+      <div>
+        <div class="cabeza-seccion" style="margin-bottom:0">
+          <p class="ceja">Cotización</p>
+          <h2>Pida su precio en minutos</h2>
+          <p class="intro">Llene los datos y se arma el mensaje para enviarlo por WhatsApp. Le respondemos con el precio y la disponibilidad.</p>
+        </div>
+        <ol class="pasos">
+          <li><div><b>Cuéntenos la carga</b><span>Qué es, cuánto pesa y de dónde a dónde va.</span></div></li>
+          <li><div><b>Envíe por WhatsApp</b><span>El mensaje sale ya escrito; solo tiene que enviarlo.</span></div></li>
+          <li><div><b>Reciba su cotización</b><span>Le confirmamos precio, vehículo y fecha de carga.</span></div></li>
+        </ol>
+      </div>
+
+      <form id="form-cotizar" novalidate>
+        <div class="campo"><label for="c-nombre">Nombre</label><input id="c-nombre" name="nombre" autocomplete="name" required></div>
+        <div class="campo"><label for="c-empresa">Empresa <small>(opcional)</small></label><input id="c-empresa" name="empresa" autocomplete="organization"></div>
+        <div class="campo"><label for="c-origen">Origen</label><input id="c-origen" name="origen" required placeholder="Ej.: Guayaquil, vía a Daule"></div>
+        <div class="campo"><label for="c-destino">Destino</label><input id="c-destino" name="destino" required placeholder="Ej.: Quito"></div>
+        <div class="campo">
+          <label for="c-carga">Tipo de carga</label>
+          <select id="c-carga" name="carga" required>
+            <option value="">Elija una opción</option>
+            <option>Maquinaria</option>
+            <option>Productos agrícolas</option>
+            <option>Materiales de construcción</option>
+            <option>Tubería</option>
+            <option>Otra</option>
+          </select>
+        </div>
+        <div class="campo">
+          <label for="c-vehiculo">Vehículo</label>
+          <select id="c-vehiculo" name="vehiculo">
+            <option>No sé, recomiéndenme</option>
+            <option>Plataforma</option>
+            <option>Furgón</option>
+          </select>
+        </div>
+        <div class="campo"><label for="c-peso">Peso aproximado <small>(toneladas)</small></label><input id="c-peso" name="peso" inputmode="decimal" placeholder="Ej.: 8"></div>
+        <div class="campo"><label for="c-fecha">Fecha de carga</label><input id="c-fecha" name="fecha" type="date"></div>
+        <div class="campo ancho"><label for="c-detalle">Detalles <small>(opcional)</small></label><textarea id="c-detalle" name="detalle" placeholder="Medidas, cantidad, si necesita montacargas, etc."></textarea></div>
+        <label class="check campo ancho" for="c-privacidad">
+          <input type="checkbox" id="c-privacidad" name="privacidad" required>
+          <span>Acepto que MADFATRANS S.A. use estos datos solo para responder mi cotización, según el <a href="#privacidad">aviso de privacidad</a>.</span>
+        </label>
+        <p class="error campo ancho" id="c-error" role="alert" hidden></p>
+        <div class="enviar"><button class="boton boton-granate" type="submit">Preparar mensaje</button></div>
+        <div class="resultado" id="c-resultado" hidden>
+          <b>Su mensaje está listo</b>
+          <pre id="c-texto"></pre>
+          <div><a class="boton boton-wa" id="c-enlace" href="#" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-wa"/></svg>Enviar por WhatsApp</a></div>
+        </div>
+      </form>
+    </div>
+  </section>
+</main>
+
+<section class="contacto" id="contacto">
+  <div class="envoltura">
+    <div>
+      <p class="ceja">Contacto</p>
+      <h2>Visítenos o escríbanos</h2>
+      <p style="margin-top:16px;color:var(--sobre-granate-suave);max-width:44ch">Atendemos a exportadoras, importadoras, industrias y personas. La forma más rápida de cotizar es por WhatsApp.</p>
+      <div class="acciones">
+        <a class="boton boton-claro" href="https://www.google.com/maps/search/?api=1&query=Km+13.5+v%C3%ADa+a+la+Costa%2C+Guayaquil%2C+Ecuador" target="_blank" rel="noopener">Ver en Google Maps</a>
+      </div>
+    </div>
+    <dl class="datos">
+      <div><dt>Dirección</dt><dd>Km 13½ vía a la Costa, Mz. F, Solar 9, Guayaquil</dd></div>
+      <div><dt>Teléfono y WhatsApp</dt><dd><a href="tel:+593992225585">+593 99 222 5585</a><button class="copiar" type="button" data-copiar="+593 99 222 5585">Copiar</button></dd></div>
+      <div><dt>Correo</dt><dd><a href="mailto:madfatrans@outlook.com">madfatrans@outlook.com</a><button class="copiar" type="button" data-copiar="madfatrans@outlook.com">Copiar</button></dd></div>
+    </dl>
+  </div>
+</section>
+
+<footer class="pie">
+  <div class="envoltura">
+    <details id="privacidad">
+      <summary>Aviso de privacidad</summary>
+      <p>MADFATRANS S.A. usa los datos que usted envía (nombre, empresa, teléfono y detalles de la carga) solo para responder su cotización y coordinar el servicio. No los vendemos ni los compartimos con terceros. Puede pedir que los corrijamos o eliminemos escribiendo a madfatrans@outlook.com, conforme a la Ley Orgánica de Protección de Datos Personales del Ecuador.</p>
+    </details>
+    <p>© <span id="anio">2026</span> MADFATRANS S.A. · Empresa de transporte terrestre pesado · Guayaquil, Ecuador</p>
+  </div>
+</footer>
+
+<a class="wa-flotante" href="https://wa.me/593992225585?text=Hola%20MADFATRANS%2C%20quisiera%20cotizar%20un%20transporte." target="_blank" rel="noopener" aria-label="Escribir por WhatsApp">
+  <svg aria-hidden="true"><use href="#i-wa"/></svg>
+</a>
+
+<script>
+(function () {
+  var WA = '593992225585';
+  var form = document.getElementById('form-cotizar');
+  var error = document.getElementById('c-error');
+  var resultado = document.getElementById('c-resultado');
+  var texto = document.getElementById('c-texto');
+  var enlace = document.getElementById('c-enlace');
+  document.getElementById('anio').textContent = new Date().getFullYear();
+
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var v = function (id) { return document.getElementById(id).value.trim(); };
+    var faltan = [];
+    if (!v('c-nombre')) faltan.push('nombre');
+    if (!v('c-origen')) faltan.push('origen');
+    if (!v('c-destino')) faltan.push('destino');
+    if (!v('c-carga')) faltan.push('tipo de carga');
+    if (faltan.length) {
+      error.textContent = 'Complete estos campos: ' + faltan.join(', ') + '.';
+      error.hidden = false; resultado.hidden = true; return;
+    }
+    if (!document.getElementById('c-privacidad').checked) {
+      error.textContent = 'Marque la casilla del aviso de privacidad para continuar.';
+      error.hidden = false; resultado.hidden = true; return;
+    }
+    error.hidden = true;
+    var lineas = [
+      'Hola MADFATRANS, quisiera una cotización:',
+      '• Nombre: ' + v('c-nombre') + (v('c-empresa') ? ' (' + v('c-empresa') + ')' : ''),
+      '• Ruta: ' + v('c-origen') + ' → ' + v('c-destino'),
+      '• Carga: ' + v('c-carga') + (v('c-peso') ? ', aprox. ' + v('c-peso') + ' t' : ''),
+      '• Vehículo: ' + v('c-vehiculo')
+    ];
+    if (v('c-fecha')) lineas.push('• Fecha de carga: ' + v('c-fecha').split('-').reverse().join('/'));
+    if (v('c-detalle')) lineas.push('• Detalles: ' + v('c-detalle'));
+    var msg = lineas.join('\n');
+    texto.textContent = msg;
+    enlace.href = 'https://wa.me/' + WA + '?text=' + encodeURIComponent(msg);
+    resultado.hidden = false;
+    enlace.focus();
+  });
+
+  document.querySelectorAll('[data-copiar]').forEach(function (b) {
+    b.addEventListener('click', function () {
+      var t = b.getAttribute('data-copiar');
+      var ok = function () { b.textContent = 'Copiado'; setTimeout(function () { b.textContent = 'Copiar'; }, 1600); };
+      try {
+        navigator.clipboard.writeText(t).then(ok, function () { seleccionar(b); });
+      } catch (err) { seleccionar(b); }
+    });
+  });
+  function seleccionar(b) {
+    var r = document.createRange(); r.selectNodeContents(b.previousElementSibling);
+    var s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
+  }
+})();
+</script>
+</body>
+</html>
