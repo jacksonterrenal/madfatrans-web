@@ -156,11 +156,9 @@ p { margin: 0; }
 .encabezado .envoltura { display: flex; align-items: center; gap: 24px; min-height: 68px; }
 .marca { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--granate); }
 :root .marca { color: var(--acento); }
-.camion {
-  width: 46px; aspect-ratio: 378 / 322; background: currentColor;
-  -webkit-mask: url(img/camion.png) center / contain no-repeat;
-          mask: url(img/camion.png) center / contain no-repeat;
-}
+.camion { width: 46px; height: auto; aspect-ratio: 378 / 322; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .camion { filter: brightness(0) invert(1); } }
+:root[data-theme="dark"] .camion { filter: brightness(0) invert(1); }
 .marca-texto { display: grid; line-height: 1; }
 .marca-texto b { font: italic 800 1.6rem/0.9 var(--f-display); letter-spacing: 0.01em; }
 .marca-texto small { font: 600 0.6rem/1.2 var(--f-display); letter-spacing: 0.08em; text-transform: uppercase; color: var(--tinta-suave); margin-top: 3px; }
@@ -179,7 +177,7 @@ p { margin: 0; }
   display: grid; gap: 48px; align-items: center;
   padding-block: 64px 72px;
 }
-@media (min-width: 960px) { .portada .envoltura { grid-template-columns: 1.15fr 0.85fr; padding-block: 88px 96px; } }
+@media (min-width: 960px) { .portada .envoltura { grid-template-columns: 1fr 1fr; padding-block: 88px 96px; } }
 .portada .ceja { color: var(--sobre-granate-suave); }
 .portada h1 {
   font-size: clamp(2.75rem, 8vw, 5rem); font-weight: 800; font-style: italic;
@@ -190,10 +188,9 @@ p { margin: 0; }
 
 /* Foto de portada con la guía de remisión superpuesta */
 .portada-visual { position: relative; display: grid; gap: 20px; min-width: 0; }
-.portada-visual img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: var(--r); box-shadow: 0 24px 60px -24px rgba(0,0,0,0.6); }
+.portada-visual img { width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: contain; border-radius: var(--r); box-shadow: 0 24px 60px -24px rgba(0,0,0,0.6); }
 @media (min-width: 960px) {
-  .portada-visual { padding-bottom: 150px; }
-  .portada-visual .guia { position: absolute; left: -56px; bottom: 0; width: 340px; }
+  .portada-visual .guia { justify-self: end; width: min(360px, 100%); margin-top: -56px; position: relative; }
 }
 /* Guía de remisión (pieza visual de portada) */
 .guia {
@@ -340,7 +337,7 @@ input:focus, select:focus, textarea:focus { outline: 2px solid var(--acento); ou
 <header class="encabezado">
   <div class="envoltura">
     <a class="marca" href="#inicio" aria-label="MADFATRANS S.A., inicio">
-      <span class="camion" aria-hidden="true"></span>
+      <img class="camion" src="img/camion.png" alt="" width="46" height="39">
       <span class="marca-texto"><b>MADFATRANS</b><small>Transporte terrestre pesado</small></span>
     </a>
     <nav class="nav" aria-label="Secciones">
