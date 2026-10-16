@@ -227,6 +227,12 @@ p { margin: 0; }
   font: 700 0.9375rem/1 var(--f-display); text-transform: uppercase; letter-spacing: 0.1em;
   display: inline-block; transform: rotate(-3deg);
 }
+/* Al cargar: la guía llega y luego se estampa el sello. Los keyframes solo
+   definen el inicio; el final es la rotación de reposo de cada elemento. */
+.guia { animation: guia-llega 500ms var(--ease-out) 120ms backwards; }
+.sello { animation: sello-estampa 220ms var(--ease-out) 560ms backwards; }
+@keyframes guia-llega { from { opacity: 0; transform: translateY(16px) rotate(0deg); } }
+@keyframes sello-estampa { from { opacity: 0; transform: scale(1.25) rotate(-3deg); } }
 
 /* Franja de garantías */
 .garantias { background: var(--superficie); border-bottom: 1px solid var(--linea); }
@@ -306,10 +312,11 @@ textarea { min-height: 96px; resize: vertical; }
 input:focus, select:focus, textarea:focus { outline: 2px solid var(--acento); outline-offset: 0; border-color: transparent; }
 .check { display: flex; gap: 10px; align-items: flex-start; font-weight: 400; font-size: 0.875rem; color: var(--tinta-suave); }
 .check input { width: 20px; height: 20px; min-height: 0; flex: none; margin-top: 2px; accent-color: var(--granate); }
-.error { color: var(--acento); font-size: 0.875rem; font-weight: 600; }
+.error { color: var(--acento); font-size: 0.875rem; font-weight: 600; transition: opacity 160ms var(--ease-out), transform 160ms var(--ease-out); }
+@starting-style { .error { opacity: 0; transform: translateY(-4px); } }
 .resultado { transition: opacity 200ms var(--ease-out), transform 200ms var(--ease-out); }
 @starting-style { .resultado { opacity: 0; transform: translateY(6px); } }
-.resultado { grid-column: 1 / -1; border: 2px solid var(--wa); border-radius: var(--r); padding: 18px; display: grid; gap: 12px; background: var(--superficie); }
+.resultado { scroll-margin-block: 96px 24px; grid-column: 1 / -1; border: 2px solid var(--wa); border-radius: var(--r); padding: 18px; display: grid; gap: 12px; background: var(--superficie); }
 .resultado pre { margin: 0; white-space: pre-wrap; font: 500 0.8125rem/1.5 var(--f-dato); color: var(--tinta-suave); }
 .enviar { grid-column: 1 / -1; display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
 
@@ -350,7 +357,10 @@ input:focus, select:focus, textarea:focus { outline: 2px solid var(--acento); ou
   html { scroll-behavior: auto; }
   .boton:active, .copiar:active, .wa-flotante:active { transform: none; }
   .resultado { transition: none; }
+  .guia, .sello { animation-name: aparece; }
+  .error { transition: opacity 160ms var(--ease-out); }
 }
+@keyframes aparece { from { opacity: 0; } }
 </style>
 </head>
 <body>
@@ -648,6 +658,20 @@ input:focus, select:focus, textarea:focus { outline: 2px solid var(--acento); ou
   var resultado = document.getElementById('c-resultado');
   var texto = document.getElementById('c-texto');
   var enlace = document.getElementById('c-enlace');
+  var menosMovimiento = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+  // Si el mismo aviso ya estaba a la vista, un sacudón corto confirma que el botón sí respondió.
+  function mostrarError(msg) {
+    var repetido = !error.hidden && error.textContent === msg;
+    error.textContent = msg;
+    error.hidden = false; resultado.hidden = true;
+    if (repetido && !menosMovimiento.matches && error.animate) {
+      error.animate([
+        { transform: 'translateX(0)' }, { transform: 'translateX(-4px)' },
+        { transform: 'translateX(4px)' }, { transform: 'translateX(0)' }
+      ], { duration: 240, easing: 'ease-out' });
+    }
+  }
   document.getElementById('anio').textContent = new Date().getFullYear();
 
 
@@ -660,12 +684,10 @@ input:focus, select:focus, textarea:focus { outline: 2px solid var(--acento); ou
     if (!v('c-destino')) faltan.push('destino');
     if (!v('c-carga')) faltan.push('tipo de carga');
     if (faltan.length) {
-      error.textContent = 'Complete estos campos: ' + faltan.join(', ') + '.';
-      error.hidden = false; resultado.hidden = true; return;
+      mostrarError('Complete estos campos: ' + faltan.join(', ') + '.'); return;
     }
     if (!document.getElementById('c-privacidad').checked) {
-      error.textContent = 'Marque la casilla del aviso de privacidad para continuar.';
-      error.hidden = false; resultado.hidden = true; return;
+      mostrarError('Marque la casilla del aviso de privacidad para continuar.'); return;
     }
     error.hidden = true;
     var lineas = [
@@ -681,7 +703,9 @@ input:focus, select:focus, textarea:focus { outline: 2px solid var(--acento); ou
     texto.textContent = msg;
     enlace.href = 'https://wa.me/' + WA + '?text=' + encodeURIComponent(msg);
     resultado.hidden = false;
-    enlace.focus();
+    // Desplaza con suavidad hasta el mensaje en vez de saltar de golpe al enfocar el botón.
+    enlace.focus({ preventScroll: true });
+    resultado.scrollIntoView({ behavior: menosMovimiento.matches ? 'auto' : 'smooth', block: 'nearest' });
   });
 
   document.querySelectorAll('[data-copiar]').forEach(function (b) {
